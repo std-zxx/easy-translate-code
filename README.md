@@ -27,7 +27,7 @@
 选中内容后，右键菜单即可选择翻译或格式转换
 
 <div align="center">
-  <img src="public/img/menu.png" width="30%" />
+  <img src="src/assets/img/menu.png" width="30%" />
 </div>
 
 ### 常用示例 1：注释转方法名
@@ -55,7 +55,7 @@ const getSensorId = () => {};
 在 VS Code 中，打开设置页面并配置百度翻译 API 的 AppID 和密钥。
 
 <div align="center">
-  <img src="public/img/setting.png" width="70%" />
+  <img src="src/assets/img/setting.png" width="70%" />
 </div>
 
 ### 申请百度翻译 API 的 AppID 和密钥步骤（网易有道翻译 API 申请大致相同，不再赘述）

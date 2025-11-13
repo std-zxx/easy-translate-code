@@ -1,0 +1,147 @@
+{
+  "name": "easy-translate-code",
+  "displayName": "easy-translate-code",
+  "description": "将选中的中文代码翻译成英文",
+  "publisher": "zxx",
+  "version": "0.0.3",
+  "icon": "logo.jpeg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/std-zxx/easy-translate-code.git"
+  },
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.translateOriginalText",
+        "title": "翻译 (中英互译)",
+        "order": 0
+      },
+      {
+        "command": "extension.translateToCamelCase",
+        "title": "小驼峰 (camelCase)",
+        "order": 1
+      },
+      {
+        "command": "extension.translateToPascalCase",
+        "title": "大驼峰 (PascalCase)",
+        "order": 2
+      },
+      {
+        "command": "extension.translateToSnakeCase",
+        "title": "下划线 (snake_case)",
+        "order": 3
+      },
+      {
+        "command": "extension.translateToKebabCase",
+        "title": "中划线 (kebab-case)",
+        "order": 4
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "extension.translateOriginalText",
+          "group": "translateCode@-9998"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "extension.translateToCamelCase",
+          "group": "translateCode@-9997"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "extension.translateToPascalCase",
+          "group": "translateCode@-9996"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "extension.translateToKebabCase",
+          "group": "translateCode@-9995"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "extension.translateToSnakeCase",
+          "group": "translateCode@-9994"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "easy-translate-code",
+      "properties": {
+        "translateCode.translateService": {
+          "type": "string",
+          "order": 0,
+          "default": "baidu",
+          "enum": [
+            "baidu",
+            "youdao"
+          ],
+          "enumDescriptions": [
+            "百度翻译",
+            "网易有道翻译"
+          ],
+          "description": "选择使用的翻译服务"
+        },
+        "translateCode.baiduAppId": {
+          "type": "string",
+          "order": 1,
+          "default": "",
+          "description": "百度翻译API的AppID"
+        },
+        "translateCode.baiduAppKey": {
+          "type": "string",
+          "order": 2,
+          "default": "",
+          "description": "百度翻译API的密钥",
+          "markdownDescription": "百度翻译API的密钥\n[获取百度翻译API](https://api.fanyi.baidu.com/)"
+        },
+        "translateCode.youdaoAppKey": {
+          "type": "string",
+          "order": 3,
+          "default": "",
+          "description": "网易有道翻译API的AppKey"
+        },
+        "translateCode.youdaoAppSecret": {
+          "type": "string",
+          "order": 4,
+          "default": "",
+          "description": "网易有道翻译API的密钥",
+          "markdownDescription": "网易有道翻译API的密钥\n[获取网易有道翻译API](https://ai.youdao.com/)",
+          "scope": "application"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/blueimp-md5": "^2.18.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.105.0",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.36.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "blueimp-md5": "^2.19.0"
+  }
+}
