@@ -1,6 +1,7 @@
 # 🚀 easy-translate-code
 
 <div align="center">
+  <p>⚡ 变量与方法快速命名工具 ⚡</p>
   <p>🔤 代码翻译与格式转换助手 🔀</p>
   <p>⚡ 提升开发效率的必备工具 ⚡</p>
 </div>
